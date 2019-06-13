@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import DogsList from "./components/Doglist"
+import DogListContainer from "./components/DogListContainer"
+import { Route } from 'react-router-dom'
+import DogBreedImagesContainer from "./components/DogBreedImagesContainer"
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
-        </header>
-        <main>
-          <DogsList />
-        </main>
-      </div>
+      <main>
+      <Route exact path="/" component={DogListContainer} />
+      <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
+    </main>
     );
   }
 }
